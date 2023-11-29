@@ -1,15 +1,24 @@
-console.log("auto update")
+import { IProduct } from "./interfaces";
 
-/*BASIC TYPES
-Por ser tipado o typescript consegue assumir qual é o tipo da variável pelo valor dela, seja boolean,number e etc...
+const productList: IProduct[] = [];
+
+const addProduct = (product: IProduct) =>{
+    productList.push(product)
+    return{
+        product, message: "produto criado com sucesso"
+    }
+}
+
+const getProducts = () =>{
+    return productList
+}
+
+const product1 = addProduct({id: 10, name: "batata", price: 300})
+const product2 = addProduct({id: 20, name: "batata doce hmm", price: 600})
+
+console.log(product1)
+console.log(product2)
 
 
-Tipo any-ex:
-let dynamicValue: any;
-dynamicValue = 42; // number
-dynamicValue = "hello"; // string
-dynamicValue = true; // boolean
 
-o any nesse caso foi usado como exmplo por não termos certeza de qual é o tipo da variável ou para permitir qualquer tipo de valor
-*/
-
+console.log(getProducts())
